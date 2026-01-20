@@ -77,7 +77,7 @@ Contributors should:
 ### This project is developed incrementally as part of a Software training program. The purpose of this section is to help new contributors to understand 
 - This System is intended to become a fully functional conference room booking system with the fuctionality to allow users to book rooms for themselves and for the admin to review bookings and resolve conflicts
 - How documentation  is organised? (Currebtly only have Sprint documents, will update later)
-- Where to find key project artefacts? (Look under ../[project-name]/sprint-1)
+- Where to find key project artefacts? (Look under [Sprint 1 folder](sprint-1/))
 -  What technologies will be used to develop this project? (will update later in the week)
 
 ---
@@ -103,7 +103,7 @@ Implementation details will be added in later modules
 
 ## Project Documentation
 This repository contains sprint documentation created during Scrum Simulations:
-- `sprint-1\`- Sprint planning, execution and review artefacts
+- [Sprint 1 folder](sprint-1/)- Sprint planning, execution and review artefacts
 
 ---
 
@@ -117,10 +117,10 @@ The following sections will be added as the project evoles
 ---
 
 ## LICENSE
-This project is [LICENSED](LICENSE) the MIT License.
+This project is [LICENSED](LICENSE) under the MIT License.
 
 ---
 
 ## ✍️ Author
-Tumisang (Romio) Lesimola: romeopomeo1@gmail.com
+Tumisang (Romio) Lesimola: romeopomeo1@gmail.com  
 Created as part of professional software development training.
