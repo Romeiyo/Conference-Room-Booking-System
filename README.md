@@ -2,7 +2,9 @@
 
 This repository contains a practice project used to demonstrate professional Git, GitHub, and collaboration workflows.
 
-The project simulates a **Conference Room Booking System** that will be expanded over multiple modules to support learning around documentation, APIs, teamwork, and system handover.
+The project simulates a **Conference Room Booking System** that will be expanded over multiple modules to support learning around documentation, APIs, teamwork, and system handover.   
+The system will include allowing employees to make and cancel bookings, allowing administrators to resolve conflicting reservations, and rooms can be marked as being under maintenance. 
+
 
 ---
 
