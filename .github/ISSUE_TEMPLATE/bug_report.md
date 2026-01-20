@@ -36,11 +36,11 @@ Add any other context about the problem here.
 
 -->
 ---
-name: 🐛 Bug Report
-about: Booking returns after cancelling
-title: Cancel booking
-labels: 'bug'
-assignees: 'Romio'
+name: 🐛 Bug Report  
+about: Booking returns after cancelling  
+title: Cancel booking  
+labels: 'bug'  
+assignees: 'Romio'  
 ---
 
 ## 🐛 Bug Description
