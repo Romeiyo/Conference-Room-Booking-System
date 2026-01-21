@@ -1,0 +1,5 @@
+My initial README.md file lacked clarity and clinking to different files or folders that onboarding collaborators would need to reference, this would cause onboarding collaborators to feel overwhelmed due to not knowing how to navigate my repository and make significant positive changes to it.
+
+At this current stage, my README.md file improves onboarding because it has proper navigation for all the necessary files that need to be accessed and it gives onboarding developers clear information on what the project is about and what stage we are at and what else needs to be added. This makes it less likely for onboarding developers to be overwhelmed and confused with knowing where they need to go to access certain documents necessary to understand the project scope.
+
+What Pull-Requests taught me is that in order to have collaboration that runs smoothly, there needs to be a dedicated reviewer who manages all incoming pull requests to make certain if the feature added or code changes are necessary for the project and need to be pushed to the main branch, and I also learned that whenever making changes, always make use of a branch to avoid breaking the main branch.

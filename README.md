@@ -106,9 +106,9 @@ Implementation details will be added in later modules
 ## Project Documentation
 This repository contains sprint documentation created during Scrum Simulations:
 - [Sprint 1 folder](sprint-1/)- Sprint planning, execution and review artefacts
+- [Issue Reporting / Feature Report](.github/ISSUE_TEMPLATE/) - Reporting Issues or suggesting Features
 
 ---
-
 ## Upcoming Documentation
 
 The following sections will be added as the project evoles
