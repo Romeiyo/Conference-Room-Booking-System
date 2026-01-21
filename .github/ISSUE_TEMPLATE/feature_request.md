@@ -16,5 +16,6 @@ I want to be able to click on a checkbox that allows me to make a singular booki
 **Describe alternatives you've considered**
 To be able to select all of the days I want to book a meeting for before I input my details, so this removes the need for checkbox that opens a calendar to select the recurring dates after putting in details.
 
-**Additional context**
+**Additional context**  
+
 <img src="https://www.hostpapa.com/knowledgebase/app/uploads/2018/03/4-20-600x503.png" width="300" height="200">
