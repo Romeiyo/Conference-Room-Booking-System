@@ -37,7 +37,7 @@ At this stage, the repository focuses on **process and communication**, not full
 ## 🗂 Repository Contents
 
 - [README file](README.md) – Basic project overview
-- [Sprint 1 folder](sprint-1/) – Sprint planning and execution artefacts created during Scrum simulations
+- [Sprint 1 folder](sprint/sprint-1) – Sprint planning and execution artefacts created during Scrum simulations
 - [Git-Ignore](.gitignore) – Git ignore rules
 - [LICENSE](LICENSE) – Project license
 
@@ -79,7 +79,7 @@ Contributors should:
 ### This project is developed incrementally as part of a Software training program. The purpose of this section is to help new contributors to understand 
 - This System is intended to become a fully functional conference room booking system with the fuctionality to allow users to book rooms for themselves and for the admin to review bookings and resolve conflicts
 - How documentation  is organised? (Currebtly only have Sprint documents, will update later)
-- Where to find key project artefacts? (Look under [Sprint 1 folder](sprint-1/))
+- Where to find key project artefacts? (Look under [Sprint 1 folder](sprint/sprint-1))
 -  What technologies will be used to develop this project? (will update later in the week)
 
 ---
@@ -105,7 +105,7 @@ Implementation details will be added in later modules
 
 ## Project Documentation
 This repository contains sprint documentation created during Scrum Simulations:
-- [Sprint 1 folder](sprint-1/)- Sprint planning, execution and review artefacts.
+- [Sprint 1 folder](sprint/sprint-1)- Sprint planning, execution and review artefacts.
 - [Issue Reporting / Feature Report](.github/ISSUE_TEMPLATE/) - Reporting Issues or suggesting Features.
 - [API Documentation](api-doc/) - All of the documentation surrounding my API Endpoints and how it functions.
 - [Souce code file](src/) - My source code, currently empty.
