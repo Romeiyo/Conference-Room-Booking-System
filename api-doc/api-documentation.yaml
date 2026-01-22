@@ -1,0 +1,382 @@
+openapi: 3.0.3
+info:
+  title: Conference Room Booking System API
+  description: API for booking, managing rooms, and checking availability.
+  version: 1.0.0
+  contact:
+    name: Tumisang (Romio) Lesimola
+    email: romeopomeo1@gmail.com
+
+servers:
+  - url: https://path1.com
+  - url: https://path2.com
+    
+
+tags:
+    - name: rooms
+      description: Rooms in the system
+    - name: bookings
+      description: Conference room bookings
+    - name: availability
+      description: Rooms available
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    LoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          example: "user@example.com"
+        password:
+          type: string
+          format: password
+          example: "SecurePass123!"
+      required:
+        - email
+        - password
+
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: JWT bearer token for authenticated requests
+          example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+        expiresIn:
+          type: integer
+          description: Token validity in seconds
+          example: 3600
+        tokenType:
+          type: string
+          example: "Bearer"
+        user:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 101
+            name:
+              type: string
+              example: "John Doe"
+            email:
+              type: string
+              example: "user@example.com"
+            role:
+              type: string
+              enum: [user, admin]
+              example: "user"
+      required:
+        - token
+        - tokenType
+
+    Room:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 012
+        name:
+          type: string
+          example: Conference 1
+        capacity:
+          type: integer
+          example: 10
+        available:
+            type: boolean
+            example: true
+
+    BookingCreate:
+      type: object
+      required:
+        - roomId
+        - userId
+        - startTime
+        - endTime
+      properties:
+        roomId:
+          type: integer
+          example: 10
+        userId:
+          type: integer
+          example: 123456789
+        startTime:
+          type: string
+          format: date-time
+          example: '2026-01-22T14:30:00+00:00'
+        endTime:
+          type: string
+          format: date-time
+          example: '2026-01-22T14:30:00+00:00'
+
+    Booking:
+      allOf:
+        - $ref: '#/components/schemas/BookingCreate'
+        - type: object
+          properties:
+            id:
+              type: integer
+              example: 54321
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Resource not found"
+        code:
+          type: integer
+          example: 404
+
+# security:
+#   - bearerAuth: []
+
+paths:
+  # Auth endpoint
+  /auth/login:
+    post:
+      summary: Authenticate user and get JWT token
+      description: Validates user credentials and returns a bearer token for API access
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              email: "user@example.com"
+              password: "SecurePass123!"
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+              example:
+                token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                expiresIn: 3600
+                tokenType: "Bearer"
+                user:
+                  id: 101
+                  name: "John Doe"
+                  email: "user@example.com"
+                  role: "user"
+        '400':
+          description: Invalid request (missing fields, malformed email)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: "Email and password are required"
+                code: 400
+        '401':
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: "Invalid email or password"
+                code: 401
+        '423':
+          description: Account locked (too many failed attempts)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Account locked. Try again in 15 minutes"
+                  code:
+                    type: integer
+                    example: 423
+
+  # Room endpoints
+  /rooms:
+    get:
+      summary: List all rooms
+      tags:
+        - rooms
+      description: Get a list of all rooms
+      parameters: 
+        - in: query
+          name: id
+          schema:
+            type: number
+          description: Filter by Room number
+        - in: query
+          name: capacity
+          schema:
+            type: number
+          description: Filter by Room capacity
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Room'
+  /rooms/{id}:
+    get:
+      summary: Get room details
+      tags:
+        - rooms
+      description: Return room details by room ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Return room details by room ID
+      responses:
+        '200':
+          description: Room details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+        '404':
+          description: Room not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  # Booking endpoints
+  /bookings:
+    get:
+      summary: List all bookings
+      tags:
+        - bookings
+      description: Admin is able to view a list of all the bookings
+      security:
+        - bearerAuth: []
+      parameters: 
+        - in: query
+          name: roomId
+          schema:
+            type: number
+          description: Filter by Room ID
+        - in: query
+          name: capacity
+          schema:
+            type: number
+          description: Filter by Room capacity
+      responses:
+        '200':
+          description: List of bookings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Booking'
+        '401':
+          description: Unauthorized - Valid token required
+    post:
+      summary: Create a booking
+      tags:
+        - bookings
+      description: Make a Conference room booking on the system
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Booking'
+      responses:
+        '201':
+          description: Booking created Successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 54321
+                    description: The ID of the newly created booking
+        '400':
+          description: Invalid input (e.g. date conflict or invalid data)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /bookings/{id}:
+    parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+    get:
+      summary: Get booking details
+      tags:
+        - bookings
+      description: Get the booking detils of a particular booking
+      responses:
+        '200':
+          description: Full Booking details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Booking'
+        '404':
+          description: Booking not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Cancel booking
+      tags:
+        - bookings
+      description: Cancel the booking associated with a particular booking ID
+      responses:
+        '204':
+          description: Booking deleted
+        '404':
+          description: Booking not found to delete
+
+  # Availability endpoint
+  /availability:
+    get:
+      summary: Check room availability
+      tags:
+        - availability
+      description: Return a list of the available rooms
+      parameters:
+        - name: date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: Available rooms
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Room'
+        '400':
+          description: Invalid date format supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
