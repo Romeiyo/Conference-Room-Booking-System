@@ -11,7 +11,7 @@ The system will include allowing employees to make and cancel bookings, allowing
 ## 📌 Purpose of This Repository
 
 This repository is used for:
-- Practising Git and GitHub fundamentals
+- Using my Git and GitHub fundamentals
 - Creating and reviewing Pull Requests
 - Working with sprint documentation
 - Gradually improving project documentation over time
@@ -105,14 +105,15 @@ Implementation details will be added in later modules
 
 ## Project Documentation
 This repository contains sprint documentation created during Scrum Simulations:
-- [Sprint 1 folder](sprint-1/)- Sprint planning, execution and review artefacts
-- [Issue Reporting / Feature Report](.github/ISSUE_TEMPLATE/) - Reporting Issues or suggesting Features
+- [Sprint 1 folder](sprint-1/)- Sprint planning, execution and review artefacts.
+- [Issue Reporting / Feature Report](.github/ISSUE_TEMPLATE/) - Reporting Issues or suggesting Features.
+- [API Documentation](api-doc/) - All of the documentation surrounding my API Endpoints and how it functions.
+- [Souce code file](src/) - My source code, currently empty.
 
 ---
 ## Upcoming Documentation
 
 The following sections will be added as the project evoles
-- API documentations (Swagger/OpenAPI)
 - Runtime instructions (Docker)
 - Developer setup and contribution workflows
 
