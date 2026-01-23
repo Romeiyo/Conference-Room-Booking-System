@@ -23,4 +23,7 @@ Have api-documentation.yaml open
 ## Slide 9
 
 Open Postman
-use the script `pm.test("Status code is 200", function () {pm.response.to.have.status(200);});`
+use the script 
+```js
+`pm.test("Status code is 200", function () {pm.response.to.have.status(200);});`
+```

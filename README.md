@@ -36,10 +36,12 @@ At this stage, the repository focuses on **process and communication**, not full
 
 ## 🗂 Repository Contents
 
-- [README file](README.md) – Basic project overview
-- [Sprint 1 folder](sprint/sprint-1) – Sprint planning and execution artefacts created during Scrum simulations
-- [Git-Ignore](.gitignore) – Git ignore rules
-- [LICENSE](LICENSE) – Project license
+- [README file](README.md) – Basic project overview.
+- [Sprint 1 folder](sprint/sprint-1) – Sprint planning and execution artefacts created during Scrum simulations.
+- [API Documentation](api-doc/)- All API documentation.
+- [Technical Presentation](technical-presentation/) - Documentation containing presentation documentation.
+- [Git-Ignore](.gitignore) – Git ignore rules.
+- [LICENSE](LICENSE) – Project license.
 
 ---
 
@@ -108,6 +110,7 @@ This repository contains sprint documentation created during Scrum Simulations:
 - [Sprint 1 folder](sprint/sprint-1)- Sprint planning, execution and review artefacts.
 - [Issue Reporting / Feature Report](.github/ISSUE_TEMPLATE/) - Reporting Issues or suggesting Features.
 - [API Documentation](api-doc/) - All of the documentation surrounding my API Endpoints and how it functions.
+- [Technical Presentation](technical-presentation/) - Documentation containing presentation documentation.
 - [Souce code file](src/) - My source code, currently empty.
 
 ---
